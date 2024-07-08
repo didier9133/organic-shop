@@ -20,6 +20,11 @@ export class InfraStack extends Stack {
         oauthToken: SecretValue.secretsManager("github-token-cdk"),
       }),
       autoBranchDeletion: true,
+      environmentVariables: {
+        NEXT_PUBLIC_API_URL: "https://api.example.com",
+        PRIVATE_SECRET_KEY:
+          SecretValue.secretsManager("private-secret-key").toString(),
+      },
       platform: Platform.WEB_COMPUTE,
       customRules: [
         {

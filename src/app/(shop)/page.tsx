@@ -14,6 +14,9 @@ export default async function Home() {
           </li>
         ))}
       </ul>
+      <p className="text-2xl font-bold">
+        Variable publica: {process.env.NEXT_PUBLIC_API_URL}
+      </p>
     </div>
   );
 }

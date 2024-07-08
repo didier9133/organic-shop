@@ -33,9 +33,13 @@ const proposalArray = [
   },
 ];
 
+const secretValue = "my-secret-key";
+
 export async function getProposalArray() {
   try {
     await sleep(300);
+    if (secretValue !== process.env.PRIVATE_SECRET_KEY)
+      throw new Error("Invalid secret key");
     return proposalArray;
   } catch (error) {
     return [];
